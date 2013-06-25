@@ -1,0 +1,12 @@
+BEGIN TRAN
+ALTER TABLE Departments
+ALTER COLUMN ManagerID
+int NULL
+
+UPDATE Departments
+SET ManagerID=NULL
+WHERE DepartmentID=3
+
+DELETE FROM Employees
+WHERE DepartmentID=3
+ROLLBACK TRAN
